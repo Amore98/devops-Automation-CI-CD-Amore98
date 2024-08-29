@@ -36,7 +36,7 @@ jobs:
           echo test, and deploy your project.
       
       - name: Login to Registry
-        uses: docker/login-action@v4
+        uses: docker/login-action@v3
         with:
           registry: judevops.azurecr.io
           username: ${{ secrets.AZURE_USERNAME }}
