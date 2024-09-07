@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.AZURE_USERNAME }}
           password: ${{ secrets.AZURE_PASSWORD }}  
       - name: Build Docker image
-        run: docker build -t judevops.azurecr.io/omer_ammo-calculator -f assignment_1_calculator_2024/BE/Dockerfile .
+        run: docker build -t judevops.azurecr.io/omer_ammo-calculator -f BE/Dockerfile .
 
       - name: Push Docker image
         run: docker push judevops.azurecr.io/omer_ammo-calculator:latest               
