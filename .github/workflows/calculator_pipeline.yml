@@ -43,6 +43,22 @@ jobs:
           password: ${{ secrets.AZURE_PASSWORD }}  
       - name: Build Docker image
         run: docker build -t judevops.azurecr.io/omer_ammo-calculator -f BE/Dockerfile .
+      - name: Install dependencies
+        run: pip install -r BE/requirements.txt
 
       - name: Push Docker image
-        run: docker push judevops.azurecr.io/omer_ammo-calculator:latest               
+        run: docker push judevops.azurecr.io/omer_ammo-calculator:latest     
+        
+
+  
+      - name: Start REST API
+        run: 
+          python BE/calculator.py --rest &
+          sleep 5
+
+      - name: Run tests
+        run: python -m pytest --junit-xml=report.xml
+      
+      - name: JUnit Report Action
+        uses: mikepenz/action-junit-report@v4.3.1
+    
