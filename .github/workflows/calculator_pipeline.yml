@@ -34,9 +34,7 @@ jobs:
       - name: Install dependencies
         run: | 
          pip install -r BE/requirements.txt
-         python -m pip install pytest
-         python -m pip install assertpy
-         python -m pip install requests
+     
 
 
       
