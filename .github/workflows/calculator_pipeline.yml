@@ -41,8 +41,10 @@ jobs:
       -  name: Start REST API
          run: | 
           python BE/calculator.py --rest &
+          sleep 5
           python -m pytest --junit-xml=report.xml
- 
+          
+         
 
       - name: JUnit Report Action
         uses: mikepenz/action-junit-report@v4.3.1
