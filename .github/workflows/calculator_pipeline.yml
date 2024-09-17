@@ -36,7 +36,13 @@ jobs:
          pip install -r BE/requirements.txt
      
 
+      - name: Run tests 
+       run: | 
+        docker run --name selenium -d --add-host host.docker.internal:host-gateway -p 4444:4444 -p 5900:5900 --shm-size="2g"selenium/standalone-chrome:4.2.1-20220531
+        docker compose -p webcalculator up -d
 
+
+     
       
       -  name: Start REST API
          run: | 
