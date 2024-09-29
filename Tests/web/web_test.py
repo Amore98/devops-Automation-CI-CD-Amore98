@@ -14,10 +14,10 @@ class TestWeb(WebBase):
     def test_register(self): 
         LoginPage(self.driver).elements.register.click()
         
-        RegisterPage(self.driver).register('b123', '1234', '1234')
+        RegisterPage(self.driver).register('b1233', '1234', '1234')
 
     
-        assert CalculatorPage(self.driver).elements.username.text == 'b123'
+        assert CalculatorPage(self.driver).elements.username.text == 'b1233'
     
 
     def test_add(self):
